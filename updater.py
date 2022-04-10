@@ -46,7 +46,7 @@ def create_headers(token, extra_headers=None):
     return rv
 
 
-@retry(times=5, delay=1.0, errors=(urllib.error.HTTPError,))
+@retry(times=5, delay=4.0, errors=(urllib.error.HTTPError,urllib.error.URLError))
 def get_url(url, headers=None):
     if headers:
         req = urllib.request.Request(url, headers=headers)
